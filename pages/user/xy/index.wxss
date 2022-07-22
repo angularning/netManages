@@ -1,0 +1,23 @@
+/* pages/xy/index.wxss */
+.xy view{
+  font-size: 1rem;
+  color: #6a6a6a;
+}
+.xy{
+  padding: 3%;
+  margin: 3%;
+  color: #6a6a6a;
+}
+.page1{
+  font-size: 1rem;
+  color: #6a6a6a;
+  margin: 3%;
+}
+.title{
+  text-align: center;
+  font-size: 1.2rem;
+  color: #222;
+}
+.page1 view{
+  margin: 3% 0;
+}

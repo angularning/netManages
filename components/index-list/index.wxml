@@ -1,0 +1,56 @@
+<wxs module="util"  src="/utils/format.wxs"/>
+<scroll-y scroll-y pull="{{pull}}" listLength="{{list.length}}" bindrefresh="refresh" style="height: 80vh;padding-bottom:3%;" wx:if="{{list.length>0 && is_login}}">
+  <view wx:for="{{list}}" class="normalServiceList" bindtap="toDetail" data-item='{{item}}'>
+    <view class="normalServiceListTop">
+      <view class="normalServiceListTitle">
+        <view>{{item.order_name}} </view>
+        <view>{{item.order_uuid}}</view>
+      </view>
+      <view class="normalServiceListLastTime">
+        <view wx:if="{{item.order_state == 1}}">
+          <view>需求已拆解，请及时确认需求</view>
+          <view class="normalServiceListLastTimeView">
+            <van-count-down bind:finish="finished" class="lastTimes" time="{{item.expired_times}}" />
+            <view>后将延期</view>
+          </view>
+        </view>
+        <view wx:else>
+           <view class="xyTypeImage">
+             <image wx:if="{{item.order_type=='standard'}}" src="/images/normal.png"></image>
+             <image wx:else src="/images/jj.png"></image>
+           </view>
+        </view>
+        <view class="normalServiceTipText1">
+        开始时间：{{util.time(item.updated_at)}}
+      </view>
+      </view>
+    </view>
+    <view class="normalServiceListBottom">
+      <view class="normalServiceTip">
+        <image class="normalServiceTipImg" wx:if="{{item.order_state=='1'}}" width="20" height="20"
+          src="/images/state1.png" ></image>
+        <image class="normalServiceTipImg" wx:if="{{item.order_state=='2'}}" width="20" height="20"
+          src="/images/state2.png" ></image>
+        <image class="normalServiceTipImg" wx:if="{{item.order_state=='3'}}" width="20" height="20"
+          src="/images/state3.png"></image>
+        <image class="normalServiceTipImg" wx:if="{{item.order_state=='4'}}" width="20" height="20"
+          src="/images/state4.png"></image>
+        <image class="normalServiceTipImg" wx:if="{{item.order_state=='5'}}" width="20" height="20"
+          src="/images/state4.png"></image>
+        <image class="normalServiceTipImg" wx:if="{{item.order_state=='6'}}" width="20" height="20"
+          src="/images/state4.png"></image>
+        <image class="normalServiceTipImg" wx:if="{{item.order_state=='7'}}" width="20" height="20"
+          src="/images/state4.png"></image>
+        <text class="normalServiceTipText {{'color'+item.order_state}}">{{util.getName(item.order_state)}}</text>
+      </view>
+      <view wx:if="{{item.order_state =='7'||item.order_state =='6'}}">
+          <view wx:if="{{item.result_file_url}}" class="seeXyBtn" data-url="{{item.result_file_url}}" catchtap="toDownUrl">查看寻源结果</view>
+        </view>
+    </view>
+  </view>
+</scroll-y>
+<scroll-view scroll-y="auto" style="max-height: 80vh;" class="noData" wx:else>
+  <view style="margin-bottom:15px;">暂无寻源单内容，以下将为您展示 <text style="color:#1C2D5A;">寻源结果样例</text></view>
+  <image wx:if="{{more}}" class="noDataImg1" src="/images/moreImg.jpg"></image>
+  <image wx:else bindtap="toShowMore" class="noDataImg" src="/images/slImg.png"></image>
+</scroll-view>

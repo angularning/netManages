@@ -1,0 +1,105 @@
+page{
+  background: #f9f9f9;
+}
+.communityBdoy{
+  /* background: #fff; */
+  padding: 10px;
+  position: sticky;
+  top: 0px;
+}
+.communityBdoy swiper{
+  height: 90vh;
+}
+.housingWrap{
+  margin: 0 5px;
+}
+.housingItem{
+  background: rgba(18, 140, 221, 0.062);
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+.housingName{
+  display: flex;
+  flex-flow: row nowrap;
+}
+.comItem{
+  position: relative;
+  /* background: url('../../images/comBgs.png') no-repeat; */
+}
+.siperTop{
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.rightImg{
+  width: 200px;
+  position: absolute;
+  right: -20px;
+  top: 0px;
+  z-index: 0;
+}
+.rightImg image{
+  width: 200px;
+  height: 150px;
+}
+.comContent{
+  width: 80%;
+  position: relative;
+  z-index: 2;
+  margin-left: 10px;
+}
+.comContent .title{
+  font-size: 20px;
+  color: #2a5dc0;
+  padding: 10px 0;
+  font-weight: bold;
+}
+.normalItem{
+  font-size: 14px;
+  color: #888;
+  padding: 5px 0;
+}
+.normalItem text:last-child{
+  color: #333;
+}
+.housingName view:first-child{
+  width: 100%;
+  padding-bottom: 10px;
+}
+.housingName view:first-child text{
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+.housingConcat, .housingName, .housingPeople{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 3px  10px;
+}
+.housingConcat, .housingName, .housingPeople text{
+  color: #666;
+  font-size: 14px;
+}
+.peopleView{
+  margin-left: 10px;
+  color: #666;
+  font-size: 14px;
+}
+.hNum1 text{
+  color: #2a5dc0;
+  font-size: 16px;
+}
+.hNum2 text{
+  color: #2a5dc0;
+  font-size: 16px;
+}
+.loadingView{
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 30%;
+}

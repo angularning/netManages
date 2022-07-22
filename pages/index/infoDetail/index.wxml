@@ -1,0 +1,12 @@
+<view class="info">
+  <view class="infoHeader">
+    <view class="title">我是一个标题</view>
+    <view class="infoExtral">
+      <view>时间：2022-05-08</view>
+      <view class="source">来源：2022-05-08</view>
+    </view>
+  </view>
+  <view class="infoBody">
+    <rich-text nodes="{{htmlData}}"></rich-text>
+  </view>
+</view>

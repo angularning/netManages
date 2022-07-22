@@ -1,0 +1,76 @@
+<!-- <t-user-center-card userInfo="{{userInfo}}" isPhoneHide="{{false}}" name-class="custom-name-class" phone-class="custom-phone-class" avatar-class="custome-avatar-class" currAuthStep="{{currAuthStep}}" bind:gotoUserEditPage="gotoUserEditPage" /> -->
+<!-- <view class="topHeader">个人中心</view> -->
+<view class="userTopBg">
+<view class="userTopBgImage">
+<image src="../../images/userBg.png"></image>
+</view>
+  <view class="userTop">
+    <view class="userHeaders">
+      <image class="userIcon" src="../../images/demoHeader.png"></image>
+    </view>
+   <view class="right">
+    <view class="user">
+      <view class="name">微信用户</view>
+      <view class="role">
+      <image class="roleImage" src="../../images/userRoleIcon.png"></image>
+      <text>管理员</text>
+      </view>
+    </view>
+    <view class="mes">
+      个人介绍或者地址或者其他信息...
+    </view>
+    </view>
+  </view>
+</view>
+<view class="userList">
+  <view class="userListItem" bindtap="toUserInfo">
+    <view class="itemIcon">
+      <image class="userIcon" src="../../images/mine_03.png"></image>
+      <view class="itemIconView">个人信息</view>
+    </view>
+    <view>
+      <image class="iconRight" src="../../images/iconRight.png"></image>
+    </view>
+  </view>
+  <view class="userListItem" bindtap="clear">
+    <view class="itemIcon">
+      <image class="userIcon" src="../../images/mine_06.png"></image>
+      <view class="itemIconView">清楚缓存</view>
+    </view>
+    <view>
+      <image class="iconRight" src="../../images/iconRight.png"></image>
+    </view>
+  </view>
+  <view class="userListItem" bindtap="toXy">
+    <view class="itemIcon">
+      <image class="userIcon" src="../../images/mine_08.png"></image>
+      <view class="itemIconView">服务协议与隐私政策</view>
+    </view>
+    <view>
+      <image class="iconRight" src="../../images/iconRight.png"></image>
+    </view>
+  </view>
+  <view class="userListItem" bindtap="showMakePhone">
+    <view class="itemIcon">
+      <image class="userIcon" src="../../images/mine_11.png"></image>
+      <view class="itemIconView">联系我们</view>
+    </view>
+    <view>
+      <image class="iconRight" src="../../images/iconRight.png"></image>
+    </view>
+  </view>
+</view>
+
+<van-popup show="{{showMakePhone}}" position="bottom"
+  custom-style="height: 26%;"
+  bind:close="onClose"
+  safe-area-inset-bottom
+  >
+  <view class="popup-content">
+    <view class="popup-title border-bottom-1px" wx:if="{{customerServiceInfo.serviceTimeDuration}}">
+      服务时间: {{customerServiceInfo.serviceTimeDuration}}
+    </view>
+    <view class="popup-phone {{showKefu ? 'border-bottom-1px' : ''}}" bind:tap="call">电话客服</view>
+    <button class="popup-phone border-bottom-1px online" open-type="contact" >在线客服</button>
+  </view>
+</van-popup>

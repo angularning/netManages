@@ -1,0 +1,89 @@
+/* pages/scan/index.wxss */
+page{
+background: #f9f9f9;
+}
+.scanPage{
+  padding-bottom: 100px;
+}
+.viewBtnEnter{
+  margin: 0 10px;
+  margin-top: 30px;
+}
+.noramlForm{
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 5px;
+}
+.noramlForm{
+  border-bottom: 1px #eee solid;
+  padding: 5px 0;
+  min-height: 40px;
+  line-height: 40px;
+}
+.pickerView{
+  display: flex;
+  /* flex-flow: row nowrap; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+}
+.iconRight{
+  width: 30px;
+  height: 30px;
+}
+.iconRight image{
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  position: relative;
+  top: 0px;
+}
+.labelName{
+  font-size: 28rpx;
+  color: #666;
+  margin-left: 20rpx;
+  width: 86px;
+}
+.normalRadio{
+  position: relative;
+  left: -12px;
+}
+.normalRadioLabel{
+  font-size: 14px;
+}
+.normalPopup{
+  height: 200px;
+}
+.formValue{
+  font-size: 14px;
+  color: #333;
+  flex: 1;
+  margin-left: 18px;
+}
+.require{
+  color: red;
+}
+.lineRadio{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.childrenFiledBody{
+  margin-left: 100px;
+  border-top: 1px #eee solid;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.childrenLabel{
+  width: 80px;
+  font-size: 14px;
+  color: #666;
+}
+.childrenField{
+  width: 40px;
+}
+.childrenFiledList{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}

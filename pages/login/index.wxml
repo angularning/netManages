@@ -1,0 +1,9 @@
+<view>
+  <view class="loginWrap">
+<image src="/images/welcomeImg.png"></image>
+    <view>欢迎使用一网通管</view>
+  </view>
+  <van-button round custom-class="loginBtnYk" color="#eee" type="info" bindtap="toLoginYk">游客进入</van-button>
+  <van-button wx:if="{{isShow}}" round custom-class="loginBtn" type="info" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信手机号快捷登录</van-button>
+
+</view>

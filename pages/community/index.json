@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "社区列表",
+  "usingComponents": {
+    "van-loading": "@vant/weapp/loading/index"
+  }
+}

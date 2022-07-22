@@ -1,0 +1,152 @@
+/* pages/service/index.wxss */
+.normalTabHeight {
+  height: 86vh;
+  background: #F2F3F6;
+}
+
+.normalServiceList {
+  background: #fff;
+  border-radius: 10px;
+  margin: 0 2.5%;
+  padding: 10px 2.5%;
+  width: 90%;
+  margin-top: 12px;
+  /* border-top: 10px #F2F3F6 solid; */
+}
+
+.normalServiceListTop {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+
+.normalServiceListTitle :first-child {
+  font-size: 16px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #1C2D5A;
+}
+
+.normalServiceListTitle :last-child {
+  font-size: 13px;
+  font-family: MicrosoftYaqiHei;
+  color: rgba(28, 45, 90, 0.5);
+  margin-top: 2px;
+}
+
+.normalServiceListLastTime view{
+  font-size: 12px;
+  color: rgba(28, 45, 90, 0.5);
+}
+.normalServiceListLastTimeView{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+  align-items: baseline;
+}
+.van-count-down{
+  margin-right: 5px;
+  color: #F13D3D !important;
+}
+
+.normalServiceListBottom {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 10px;
+}
+
+.normalServiceListBottom :last-child {
+  font-size: 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #1C2D5A;
+  margin-top: 5px;
+}
+.normalServiceListLastTime :last-child{
+  margin-top: 5px;
+}
+
+.normalServiceTipImg image{
+  vertical-align: center;
+}
+
+.normalServiceTipText {
+  margin-left: 5px;
+  font-size: 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+}
+.xyTypeImage{
+  width: 100%;
+  text-align: right;
+}
+.xyTypeImage image{
+  width: 62px;
+  height: 22px;
+  vertical-align: bottom;
+}
+.normalServiceTipImg{
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.normalServiceTipText{
+  text-align: left;
+}
+.normalServiceTipText1{
+  text-align: right;
+}
+.normalServiceTip{
+  width: 34%;
+}
+.color1{
+  color: #E18100;
+}
+.color2{
+  color: #E18100;
+}
+.color3{
+  color: #3A72FF;
+}
+.color4{
+  color: #3A72FF;
+}
+.color5{
+  color: #3A72FF;
+}
+.color6{
+  color: #3A72FF;
+}
+.color7{
+  color: #3A72FF;
+}
+.noData{
+  text-align: center;
+  margin: 8% 0;
+  color: #a2a2a2;
+  font-size: 1rem;
+}
+
+.noDataImg{
+  width: 20rem;
+  height: 39rem;
+}
+.noDataImg1{
+  width: 20rem;
+    height: 83rem;
+}
+.seeXyBtn{
+  width: 100px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 20px;
+  background: #3a72ff2d;
+  color: #3A72FF !important;
+  text-align: center;
+  /* font-size: .8rem; */
+}

@@ -1,0 +1,70 @@
+/* pages/personApprove/index.wxss */
+page{
+  background: #f9f9f9;
+}
+.personList{
+  width: 100%;
+  background: #fff;
+}
+.personHeader{
+  margin-top: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  border-bottom: 1px #eee solid;
+}
+.personHeader view{
+  font-size: 16px;
+  color: #333;
+}
+.personBody{
+  background: #fff;
+  margin:  0 10px;
+  padding: 0 6px;
+}
+.personItem{
+  height: 52px;
+  line-height: 52px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+  align-items: center;
+  border-bottom: 1px #eee solid;
+  font-size: 14px;
+  color: #666;
+}
+.status{
+  color: #1989fa;
+}
+.personHeader view:first-child{
+  width: 20%;
+}
+.personHeader view:nth-child(2){
+  width: 39%;
+}
+.personHeader view:nth-child(3){
+  width: 20%;
+}
+.personHeader view:last-child{
+  margin-right: 10px;
+}
+.name{
+  width: 20%;
+}
+.idcard{
+  width: 40%;
+}
+.status{
+  width: 20%;
+}
+.personTitle{
+  width: 40px;
+}
+.personValue{
+  text-align: left !important;
+}
+.popPerson{
+  padding-top: 40px;
+}

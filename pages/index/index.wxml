@@ -1,0 +1,41 @@
+<view class="home-page-header">
+  <view class="swiper-wrap">
+    <swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" indicator-dots="{{true}}" indicator-active-color="#fff">
+      <swiper-item wx:for="{{imgSrcs}}" wx:key="index">
+        <van-image width="100%" height="380rpx" image-class="bannerImg" src="{{item.img}}" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <view wx:if="{{hasMes}}">
+    <van-notice-bar color="#1989fa" scrollable background="#ecf9ff" left-icon="info-o" text="欢迎来到一网通管！" />
+  </view>
+</view>
+<view class="home-page-container">
+  <view class="titleWrap">
+    <view class="commonTitle">我的功能</view>
+  </view>
+  <view class="homeIconList">
+    <view class="listRe" wx:for="{{homeIconList}}" wx:for-index='index' wx:key="index" slot="note" data-index="{{index}}" bindtap="toPages">
+      <view class="home-badge" wx:if="{{index === 0}}" size="medium">{{ 3}}</view>
+      <image class="listReImage" src="{{item.icon}}">
+      </image>
+      <view class="listName">{{item.name}}</view>
+    </view>
+  </view>
+  <view class="titleWrap">
+    <view class="commonTitle">相关资讯</view>
+  </view>
+  <view class="newsList">
+    <view class="newsItem" wx:for="{{newsList}}" bindtap="toInfo" data-item="{{item}}">
+      <view class="newsTitle">{{item.title}}</view>
+      <view class="newsBody">
+        <view class="newsDate">
+          <image class="newsIcon" src="../../images/iconDate.png"></image><text>{{item.date}}</text>
+        </view>
+        <view class="newsView">
+          <image class="newsIcon" src="../../images/iconView.png"></image><text>{{item.view}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

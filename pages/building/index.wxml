@@ -1,0 +1,36 @@
+<view class="buildPage">
+  <view class="buildingSidebar">
+    <van-sidebar custom-class="sideBar" active-key="{{ activeKey }}" bind:change="onChange">
+      <van-sidebar-item custom-class="sideItem" wx:for="{{list}}" title="{{item.building}}" />
+    </van-sidebar>
+  </view>
+  <scroll-view scroll-y="true" style="height:90vh;" class="buildingContent">
+    <view class="titleWrap">
+    <view class="commonTitle">单元</view>
+  </view>
+    <view class="unitList">
+      <van-button custom-class="unitBtn" size="normal" plain wx:for="{{list[activeKey].unit}}" type="info">{{item}}</van-button>
+    </view>
+    <van-divider />
+    <view class="titleWrap">
+    <view class="commonTitle">房间</view>
+  </view>
+    <view class="roomList">
+    <view class="roomListItem {{item==='101' ? 'bgGreen': 'bgBlue'}}" wx:for="{{ list[activeKey].room }}" wx:key="index" data-item="{{item}}" bindtap="toHousehold">
+      <view>
+      <van-icon name="wap-home-o" />
+      </view>
+      <view class="homeName">
+      {{item}}
+      </view>
+    </view>
+      <!-- <van-grid gutter="{{ 10 }}" square clickable column-num="3">
+        <van-grid-item border icon-color="#1989fa" >
+          <view slot='text'>
+            {{item}}
+          </view>
+        </van-grid-item>
+      </van-grid> -->
+    </view>
+  </scroll-view>
+</view>

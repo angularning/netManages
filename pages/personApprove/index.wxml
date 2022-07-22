@@ -1,0 +1,29 @@
+<view>
+  <view class="personList">
+    <view class="personHeader">
+      <view>姓名</view>
+      <view>身份证号</view>
+      <view>审核状态</view>
+      <view>操作</view>
+    </view>
+    <view class="personBody" wx:if="{{list.length>0}}">
+      <view wx:for="{{list}}" wx:key="index" class="personItem">
+        <view class="name">{{item.name}}</view>
+        <view class="idcard">{{item.idcard}}</view>
+        <view class="status">{{item.status}}</view>
+        <view class="operate">
+          <van-button bindtap="check" custom-style="border-radius: 4px" size="small" disabled="{{item.status === '已审核'}}" data-item="{{item}}" type="info">审核</van-button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <van-empty wx:if="{{list.length === 0}}" image="search" description="暂无人员" />
+</view>
+<van-popup show="{{ show }}" close-on-click-overlay custom-style="width: 90%;height:55%;" closeable round bind:close="onClose">
+  <view class="popPerson">
+    <van-cell-group inset>
+      <van-cell title-class="personTitle" value-class="personValue" clickable wx:for="{{personData}}" title="{{item.name}}" value="{{item.value}}" />
+    </van-cell-group>
+    <van-button bindtap="check" custom-style="border-radius: 4px;margin: 20px 12px;width: 92%;" size="large" type="info">确认审核</van-button>
+  </view>
+</van-popup>

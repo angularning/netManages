@@ -1,0 +1,51 @@
+<view>
+  <view class="communityBdoy">
+    <swiper circular="true" bindchange="changeSwiper">
+      <swiper-item class="comItem" wx:for="{{communityList}}">
+        <view class="siperTop">
+          <view class="comContent">
+            <view class="title">
+              {{item.name}}
+            </view>
+            <view class="normalItem">
+              <text>联系人：</text>
+              <text>{{item.concat}}</text>
+            </view>
+            <view class="normalItem">
+              <text>联系电话：</text>
+              <text>{{item.phone}}</text>
+            </view>
+            <view class="normalItem">
+              <text>工作时间：</text>
+              <text>{{item.time}}</text>
+            </view>
+          </view>
+          <view class="rightImg">
+            <image src="../../images/comBgs.png"></image>
+          </view>
+        </view>
+        <view class="housingWrap">
+          <view class="loadingView">
+            <van-loading color="#1989fa" wx:if="{{loading}}" />
+          </view>
+          <scroll-view scroll-y="true" style="height: 500px;" wx:if="{{!loading}}">
+            <view class="housingItem" wx:for="{{housingList}}" data-item="{{item}}" bindtap="toBuilding">
+              <view class="housingName">
+                <view><text>{{item.name}}</text></view>
+              </view>
+              <view class="housingConcat">
+                <view><text>联系人：</text><text>{{item.concat}}</text></view>
+                <view><text>联系电话：</text><text>{{item.phone}}</text></view>
+              </view>
+              <view class="peopleView"><text>人数：</text><text>{{item.people}}</text></view>
+              <view class="housingPeople">
+                <view class="hNum1"><text>录入人数：</text><text>{{item.num1}}</text></view>
+                <view class="hNum2"><text>未录入人数：</text><text>{{item.num2}}</text></view>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

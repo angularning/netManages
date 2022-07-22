@@ -1,0 +1,6 @@
+{
+"navigationBarTitleText": "一网通管平台",
+  "usingComponents": {
+    "van-overlay": "@vant/weapp/overlay/index"
+  }
+}

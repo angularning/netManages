@@ -1,0 +1,21 @@
+<view>
+  <view class="hoseholdTitle">
+      <view class="houseTitle">基本信息</view>
+      <view class="baseBody">
+        <view class="baseCell" wx:for="{{houseData}}">
+          <view class="name">{{keyMap[index]}}</view>
+          <view class="value">{{item}}</view>
+        </view>
+      </view>
+      <view class="houseTitle">扩展信息</view>
+      <view class="baseBody">
+        <view class="extralCell" wx:for="{{extralData}}">
+          <view class="cellIcon">
+            <image src="../../images/household/household_{{index}}.png"></image>
+          </view>
+          <view class="name">{{keyMap[index]}}</view>
+          <view class="value">{{item}}</view>
+        </view>
+      </view>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+<wxs module="util"  src="/utils/format.wxs"/>
+<scroll-view scroll-y style="height: 80vh;padding-bottom:3%;" wx:if="{{list.length>0}}">
+  <view wx:for="{{list}}" class="normalServiceList" bindtap="toDetail" data-item='{{item}}'>
+    <view class="normalServiceListTop">
+      <view class="normalServiceListTitle">
+        <view>{{item.xunyuan_name}} </view>
+      </view>
+      <view class="normalServiceListLastTime">
+        <!-- <view class="xyTypeImage">
+             <image wx:if="{{item.xunyuan_type=='standard'}}" src="/images/normal.png"></image>
+             <image wx:else style="width:90px;" src="/images/qianzai.png"></image>
+           </view> -->
+      </view>
+    </view>
+    <view class="normalServiceListBottom">
+      <view class="normalServiceTip">
+        <view class="normalServiceTipText color1" style="color:#e18100;">{{util.getNameState(item.xunyuan_state)}}</view>
+      </view>
+      <view class="normalServiceTipText1">
+        提交时间：{{util.time(item.created_at)}}
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class="noData" wx:else>
+  暂无数据
+</view>

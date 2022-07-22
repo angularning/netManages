@@ -1,0 +1,52 @@
+/**app.wxss**/
+.pages{
+  font-size: 1rem;
+  background: #F2F3F6;
+  height: 100vh;
+  position: relative;
+}
+.bottomBtn{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  padding: 10px 0 40px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.bottomBtn .sWidth{
+  width: 42%;
+}
+.borderTop10{
+  border-top: 10px #F2F3F6 solid;
+}
+.borderBottom10{
+  border-top: 10px #F2F3F6 solid;
+}
+.wxIndexImgWrap{
+  text-align: center;
+  margin-top: 3%;
+}
+.wxIndexImgWrap image{
+  width: 94%;
+  height: 270px;
+}
+.van-count-down{
+  color: #F13D3D !important;
+}
+.noData{
+  text-align: center;
+}
+.noData image{
+  width: 125px;
+  height: 100px;
+  margin-top: 100px;
+}
+.noData view{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #3A72FF;
+}

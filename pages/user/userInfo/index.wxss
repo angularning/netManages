@@ -1,0 +1,9 @@
+page{
+  background: #f9f9f9;
+}
+.infoBody{
+  margin: 12px;
+}
+.userTitle{
+  margin-top: 24px;
+}

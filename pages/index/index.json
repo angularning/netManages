@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "一网通管",
+  "onReachBottomDistance": 10,
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+     "van-image": "@vant/weapp/image/index"
+  }
+}

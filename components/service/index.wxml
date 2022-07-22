@@ -1,0 +1,10 @@
+<view class="indexRightIcon">
+    <view>
+      <button open-type="contact">
+     <image src="../../images/wxKfIcon.png"></image>
+      </button>
+    </view>
+    <view>
+    <image bindtap="toTel" src="../../images/wxTelIcon.png"></image>
+    </view>
+  </view>

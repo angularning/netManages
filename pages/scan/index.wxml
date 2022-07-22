@@ -1,0 +1,52 @@
+<view class="scanPage">
+  <form bindsubmit='submitForm'>
+    <view class="formTable">
+      <!-- <view class="">
+      <view>身份证OCR识别</view>
+      <button>选择图片</button>
+      </view> -->
+      <view class="noramlForm" wx:for="{{formData}}" wx:key='index'>
+        <view wx:if="{{item.type === 'input'}}">
+          <van-field name='{{item.id}}' required="{{item.isRequire}}" label="{{item.label}}" title-width="90px" type="{{item.limitType}}" maxlength="{{item.max}}" model:value="{{ item.value }}" placeholder="{{item.placeholder}}" border="{{ false }}" >
+           <van-icon bindtap="getUserLocation" wx:if="{{item.hasIcon}}" slot="icon"  name="{{item.iconName}}" />
+          </van-field>
+          <view wx:if="{{item.children.length > 0 && item.type === 'input'}}" class="childrenFiledBody">
+            <view class="childrenFiledList" wx:for="{{item.children}}" wx:key="i" wx:for-item="it">
+              <van-field name='{{it.id}}' required="{{it.isRequire}}" input-class="childrenField" model:value="{{ it.value }}" maxlength="{{item.max}}" placeholder="{{it.placeholder}}" border="{{ false }}" />
+              <!-- <view class="childrenLabel">{{it.label}}</view> -->
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{item.type === 'select'}}">
+          <view class="pickerView" data-item="{{item}}" bindtap="changePickerPopup">
+            <view class="labelName"><text class="require">*</text><text>{{item.label}}</text></view>
+            <view class="formValue" name="{{item.id}}">{{pageData[item.id]['value'] || item.value}}</view>
+            <view class="iconRight">
+              <image src="../../images/iconRight.png"></image>
+            </view>
+          </view>
+          <van-popup z-index="{{99999}}" show="{{ pageData[item.id]['visible'] }}" data-item="{{item}}" position="bottom" custom-style="height: 42%;" bind:close="onClose">
+            <van-picker custom-class="normalPicker" value="{{ item.value }}" name="{{item.id}}" data-item="{{item}}" columns="{{ item.children }}" default-index="{{ 0 }}" show-toolbar title="" bind:cancel="onCloseSelect" bind:confirm="onConfirmSelect" />
+          </van-popup>
+        </view>
+        <view class="lineRadio" wx:if="{{item.type === 'radio'}}">
+          <view class="pickerView">
+            <view class="labelName"><text class="require">*</text><text>{{item.label}}</text></view>
+            <view class="iconRight">
+            </view>
+          </view>
+          <view class="normalRadio">
+            <van-radio-group direction="horizontal" name="{{item.id}}" value="{{ pageData[item.id]['value']|| item.value }}" data-item="{{item}}" bind:change="onChangeRadio">
+              <van-radio wx:for="{{item.children}}" icon-size="18px" wx:key="i" wx:for-item="it" name="{{it.value}}" title="{{it.value}}">
+                <text class="normalRadioLabel">{{it.value}}</text>
+              </van-radio>
+            </van-radio-group>
+          </view>
+        </view>
+      </view>
+      <view class="viewBtnEnter">
+        <van-button formType="submit" custom-style="border-radius: 10px;" class="sWidth" block color="#3A72FF" round radius="10" type="info">确定</van-button>
+      </view>
+    </view>
+  </form>
+</view>

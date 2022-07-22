@@ -1,0 +1,86 @@
+page{
+  background: #f9f9f9;
+  /* height: 100%; */
+}
+.buildPage{
+  margin: 12px;
+  background: #fff;
+  /* height: calc(100% - 20px); */
+  display: flex;
+  flex-flow: row nowrap;
+  --button-border-radius: 4px;
+  --sidebar-selected-border-color: #1989fa;
+  --sidebar-active-color: #fff;
+  --sidebar-selected-text-color: #146ac0;
+}
+.sideBar{
+  background: red;
+}
+
+.sideItem{
+  color: red;
+}
+.unitList{
+  margin: 10px auto;
+  text-align: center;
+  display: flex;
+  justify-content: left;
+  margin-left: 10px;
+  flex-flow: row wrap;
+  justify-content: left;
+}
+.unitBtn{
+  margin-right: 20px;
+  height: 20px;
+  margin-bottom: 20px;
+}
+.buildingContent{
+  width: 100%;
+  padding-bottom: 100px;
+}
+
+.titleWrap{
+  background: #fff;
+  width: 100%;
+}
+.commonTitle{
+  padding: 20rpx;
+  margin-top: 14px;
+  font-size: 16px;
+  width: 32px;
+}
+.commonTitle::after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #0053d9ad;
+  margin-top: 14rpx;
+}
+
+.roomList{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  
+}
+.roomListItem{
+  width: 28%;
+  text-align: center;
+  border: 1px #eee solid;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 5px 0;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.bgGreen{
+  background: chartreuse;
+  color: #666;
+}
+.bgBlue{
+  background: cornflowerblue;
+  color: #fff;
+}

@@ -1,0 +1,13 @@
+<view>
+<view class="viewBody">
+  <van-field
+    value="{{ value }}"
+    placeholder="请输入用户名"
+    border="{{ false }}"
+    bind:change="onChange"
+  />
+</view>
+<view class="btn">
+  <van-button type="info" bindtap="toUesrInfo" size="large" cunstom-style="border-radius: 10px">确定</van-button>
+</view>
+</view>

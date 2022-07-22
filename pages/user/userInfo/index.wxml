@@ -1,0 +1,16 @@
+<view class="infoBody">
+  <van-cell-group>
+  <van-cell title="头像" title-class="userTitle">
+    <van-uploader bind:after-read="afterRead" >
+      <van-image
+      round
+      width="60px"
+      height="60px"
+      src="https://img.yzcdn.cn/vant/cat.jpeg"
+    />
+    </van-uploader>
+  </van-cell>
+  <van-cell title="身份" value="管理员" />
+  <van-cell bindtap="toChangeName" title="姓名" value="网三" is-link	/>
+</van-cell-group>
+</view>
