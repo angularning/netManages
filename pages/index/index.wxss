@@ -16,6 +16,7 @@ page {
 .home-page-header {
   display: block;
   padding: 0 24rpx;
+  margin-top: 12px;
 }
 .titleWrap{
   background: #fff;
@@ -45,7 +46,7 @@ page {
   flex-flow: row wrap;
 }
 .listRe{
-  flex: 1;
+  width: 100px;
   text-align: center;
   margin: 15px 5px;
   position: relative;

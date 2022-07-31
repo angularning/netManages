@@ -14,8 +14,8 @@ const request = (url, options) => {
         }
         wx.request({
             // staging-
-            // url: `http://172.17.2.93:8080/v1/api${url}`,
-            url: `https://caigou.ezhongbiao.com/v1/api${url}`,
+            url: `https://ywtg-applet.bjzelr.com${url}`,
+            // url: `https://caigou.ezhongbiao.com/v1/api${url}`,
             method: options.method,
             data: options.data,
             header: header,

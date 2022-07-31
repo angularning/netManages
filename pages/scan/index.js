@@ -1,209 +1,212 @@
 // pages/scan/index.js
 const app = getApp();
+import { fetchScanData } from '../../services/index/index'
 var QQMapWX = require('../../utils/qqmap-wx-jssdk.min');
 var qqmapsdk;
-Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    formData: [
+const demoFormData = [
+  {
+    id: 'name',
+    label: '姓名',
+    type: 'input',
+    isRequire: true,
+    placeholder: '请输入姓名',
+    visible: false,
+    value: '小王',
+    reg: /^[1][3,4,5,7,8][0-9]{9}$/,
+    max: 10,
+    min: 2
+  },
+  {
+    id: 'phone',
+    label: '联系方式',
+    type: 'input',
+    limitType: 'digit',
+    isRequire: true,
+    placeholder: '请输入11位有效手机号',
+    value: '1581123888',
+    reg: /^[1][3,4,5,7,8][0-9]{9}$/,
+    max: 11,
+    min: 2
+  },
+  {
+    id: 'idcard',
+    label: '身份证类型',
+    type: 'select',
+    isRequire: true,
+    visible: false,
+    placeholder: '',
+    children: [
       {
-        id: 'name',
-        label: '姓名',
-        type: 'input',
-        isRequire: true,
-        placeholder: '请输入姓名',
-        visible: false,
-        value: '小王',
-        reg: /^[1][3,4,5,7,8][0-9]{9}$/,
-        max: 10,
-        min: 2
+        id: '1',
+        label: '身份证',
+        value: '身份证'
       },
       {
-        id: 'phone',
-        label: '联系方式',
-        type: 'input',
-        limitType: 'digit',
-        isRequire: true,
-        placeholder: '请输入11位有效手机号',
-        value: '1581123888',
-        reg: /^[1][3,4,5,7,8][0-9]{9}$/,
-        max: 11,
-        min: 2
+        id: '2',
+        label: '驾驶证',
+        value: '驾驶证'
       },
       {
-        id: 'idcard',
-        label: '身份证类型',
-        type: 'select',
-        isRequire: true,
-        visible: false,
-        placeholder: '',
-        children: [
-          {
-            id: '1',
-            label: '身份证',
-            value: '身份证'
-          },
-          {
-            id: '2',
-            label: '驾驶证',
-            value: '驾驶证'
-          },
-          {
-            id: '3',
-            key: '港澳台通行证',
-            value: '港澳台通行证'
-          },
-        ],
-        value: '身份证',
-        reg: '',
-        max: 20,
-        min: 2
+        id: '3',
+        key: '港澳台通行证',
+        value: '港澳台通行证'
       },
+    ],
+    value: '身份证',
+    reg: '',
+    max: 20,
+    min: 2
+  },
+  {
+    id:"cardnum",
+    label: '证件号码',
+    type: 'input',
+    isRequire: true,
+    placeholder: '请输入证件号码',
+    value: '',
+    reg: '',
+    max: 20,
+    min: 2
+  },
+  {
+    id: 'home',
+    label: '出入类型',
+    type: 'radio',
+    isRequire: true,
+    placeholder: '请输入证件号码',
+    value: '常驻',
+    reg: '',
+    children: [
       {
-        id:"cardnum",
-        label: '证件号码',
-        type: 'input',
-        isRequire: true,
-        placeholder: '请输入证件号码',
-        value: '',
-        reg: '',
-        max: 20,
-        min: 2
-      },
-      {
-        id: 'home',
-        label: '出入类型',
-        type: 'radio',
-        isRequire: true,
-        placeholder: '请输入证件号码',
+        id: '1',
+        label: '常驻',
         value: '常驻',
-        reg: '',
-        children: [
-          {
-            id: '1',
-            label: '常驻',
-            value: '常驻',
-          },
-          {
-            id: '2',
-            label: '租住',
-            value: '租住',
-          },
-        ],
-        max: 20,
-        min: 2
       },
       {
-        id: 'gender',
-        label: '性别',
-        type: 'radio',
-        isRequire: true,
-        placeholder: '请选择性别',
+        id: '2',
+        label: '租住',
+        value: '租住',
+      },
+    ],
+    max: 20,
+    min: 2
+  },
+  {
+    id: 'gender',
+    label: '性别',
+    type: 'radio',
+    isRequire: true,
+    placeholder: '请选择性别',
+    value: '男',
+    reg: '',
+    children: [
+      {
+        id: '1',
+        label: '男',
         value: '男',
-        reg: '',
-        children: [
-          {
-            id: '1',
-            label: '男',
-            value: '男',
-          },
-          {
-            id: '2',
-            label: '女',
-            value: '女',
-          },
-        ],
-        max: 20,
-        min: 2
       },
       {
-        id: 'idaddress',
-        label: '户籍',
-        type: 'radio',
-        isRequire: true,
-        placeholder: '请选择户籍',
+        id: '2',
+        label: '女',
+        value: '女',
+      },
+    ],
+    max: 20,
+    min: 2
+  },
+  {
+    id: 'idaddress',
+    label: '户籍',
+    type: 'radio',
+    isRequire: true,
+    placeholder: '请选择户籍',
+    value: '户籍人口',
+    reg: '',
+    children: [
+      {
+        id: '1',
+        label: '户籍人口',
         value: '户籍人口',
-        reg: '',
-        children: [
-          {
-            id: '1',
-            label: '户籍人口',
-            value: '户籍人口',
-          },
-          {
-            id: '2',
-            label: '非户籍人口',
-            value: '非户籍人口',
-          },
-        ],
-        max: 20,
-        min: 2
       },
       {
-        id: 'location',
-        label: '现居住地址',
+        id: '2',
+        label: '非户籍人口',
+        value: '非户籍人口',
+      },
+    ],
+    max: 20,
+    min: 2
+  },
+  {
+    id: 'location',
+    label: '现居住地址',
+    type: 'input',
+    isRequire: true,
+    placeholder: '请输入地址',
+    useLocation: true,
+    hasIcon: true,
+    iconName: 'location-o',
+    single: false, // 默认多行，主要区分与子节点是否单行
+    children: [
+      {
+        id: 'building',
+        label: '楼号',
         type: 'input',
         isRequire: true,
-        placeholder: '请输入地址',
-        useLocation: true,
-        hasIcon: true,
-        iconName: 'location-o',
-        single: false, // 默认多行，主要区分与子节点是否单行
-        children: [
-          {
-            id: 'building',
-            label: '楼号',
-            type: 'input',
-            isRequire: true,
-            placeholder: '楼号',
-            value: '',
-            reg: '',
-            max: 20,
-            min: 2
-          },
-          {
-            id: 'unit',
-            label: '单元',
-            type: 'input',
-            isRequire: false,
-            placeholder: '单元',
-            value: '',
-            reg: '',
-            max: 20,
-            min: 2
-          },
-          {
-            id: 'room',
-            label: '室',
-            type: 'input',
-            isRequire: false,
-            placeholder: '室',
-            value: '',
-            reg: '',
-            max: 20,
-            min: 2
-          },
-        ],
+        placeholder: '楼号',
         value: '',
         reg: '',
         max: 20,
         min: 2
       },
       {
-        id: 'community',
-        label: '所属社区',
+        id: 'unit',
+        label: '单元',
         type: 'input',
-        isRequire: true,
-        placeholder: '请输入社区名称',
+        isRequire: false,
+        placeholder: '单元',
+        value: '',
+        reg: '',
+        max: 20,
+        min: 2
+      },
+      {
+        id: 'room',
+        label: '室',
+        type: 'input',
+        isRequire: false,
+        placeholder: '室',
         value: '',
         reg: '',
         max: 20,
         min: 2
       },
     ],
+    value: '',
+    reg: '',
+    max: 20,
+    min: 2
+  },
+  {
+    id: 'community',
+    label: '所属社区',
+    type: 'input',
+    isRequire: true,
+    placeholder: '请输入社区名称',
+    value: '',
+    reg: '',
+    max: 20,
+    min: 2,
+    disable: true
+  },
+]
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    formData: [],
     // 存储页面的状态
     pageData: {}
   },
@@ -212,6 +215,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+   
     // 使用定位
     qqmapsdk = new QQMapWX({
       key: 'VCQBZ-DW6WU-CLUVW-BMDPH-EESX3-GIBO5'
@@ -394,7 +398,7 @@ Page({
    */
   filterChildren(data, type) {
     if(type === 'select'){
-      return data && data.map(item => item.value)
+      return data && data.map(item => item.value || item)
     } else {
       return data
     }
@@ -433,22 +437,40 @@ Page({
           return
         }
       }
+      if(item.children){
+        item.children.forEach(res => {
+          if(!pageData[item.id]['value']){
+            wx.showToast({
+              title: `请填写${item.label}`,
+              icon: 'none'
+            })
+            return
+          }
+
+        })
+        
+      }
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-    // 获取定位
-    // this.getUserLocation()
+  // 初始化数据
+  async init() {
+    const token = app.globalData.token
+    const qrCode = app.globalData.scanData
+    // 请求数据，formData赋值
+    const params = {
+      qrCode,
+      token: '1'
+    }
+    const result = await fetchScanData(params)
+    console.log('扫码成功之后', result);
+    if(!result){
+      return
+    }
+    this.setData({
+      formData: result.body
+    })
+    // 初始化进入之后控制显示值的格式
     // 控制picker的值
     const pageData = {}
     this.data.formData.map(item => {
@@ -456,6 +478,7 @@ Page({
         visible: false,
         value: item.value
       }
+      // 输入框要控制子节点value的格式
       if(item.children && item.children.length > 0 && item.type === 'input'){
          item.children.map(it => {
           pageData[it.id] = {
@@ -479,6 +502,21 @@ Page({
     this.setData({
       formData
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+     // 初始化数据调用
+     this.init()
   },
 
   /**

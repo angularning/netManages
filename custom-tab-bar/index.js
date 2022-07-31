@@ -25,10 +25,28 @@ Component({
   },
   methods: {
     onChange(e) {
-      this.setData({ active: e.detail });
+      const that = this
+      that.setData({ active: e.detail });
+      if(e.detail === 1){
+        wx.scanCode({
+          success (res) {
+            console.log(res)
+            if(res.errMsg === 'scanCode:ok' && res.result){
+              app.globalData.scanData = res.result
+              wx.switchTab({
+                url: that.data.list[e.detail].pagePath
+              });
+            }
+          }
+        })
+      } else {
         wx.switchTab({
           url: this.data.list[e.detail].pagePath
         });
+      }
+        // wx.switchTab({
+        //   url: this.data.list[e.detail].pagePath
+        // });
         wx.getStorage({
           key: 'is_login',
           success: login=>{

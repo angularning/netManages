@@ -1,38 +1,38 @@
-const images = [
-  {
-    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner2.png',
-    text: '2',
-  },
-  {
-    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner3.png',
-    text: '3',
-  },
-  {
-    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner4.png',
-    text: '4',
-  },
-  {
-    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner5.png',
-    text: '5',
-  },
-  {
-    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner6.png',
-    text: '6',
-  },
-];
 
+import api from '../../utils/request'
 
 /** 获取首页数据 */
-export function fetchIndexBanner() {
-  return Promise.resolve().then(() => {
-    return {
-      swiper: images,
-    };
-  });
+export async function fetchIndexBanner(param) {
+ const { data } = await api.post('/wisdom-community-api/bannerInfo/list', param)
+  return data.body
 }
-export function fetchHomeList() {
-  // if (config.useMock) {
-  //   return mockFetchHome();
-  // }
-  return 'axios'
+
+// 首页动态模块
+export async function fetchHomeList(param) {
+  const { data } = await api.post('/wisdom-community-api/modelInfo/list', param)
+  return data
+}
+
+// 首页通知模块
+export async function fetchNotice(param) {
+  const { data } = await api.post('/wisdom-community-api/messageInfo/list', param)
+  return data
+}
+
+// 扫码初始化数据
+export async function fetchScanData(param) {
+  const { data } = await api.postObj('/wisdom-community-api/userInfoInputModel/populationInputModel', param)
+  return data
+}
+
+// 扫码保存数据
+export async function saveScanData(param) {
+  const { data } = await api.post('/wisdom-community-api/messageInfo/list', param)
+  return data
+}
+// 扫码修改数据
+
+export async function patchScanData(param) {
+  const { data } = await api.post('/wisdom-community-api/messageInfo/list', param)
+  return data
 }

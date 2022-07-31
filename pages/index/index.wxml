@@ -2,37 +2,37 @@
   <view class="swiper-wrap">
     <swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" indicator-dots="{{true}}" indicator-active-color="#fff">
       <swiper-item wx:for="{{imgSrcs}}" wx:key="index">
-        <van-image width="100%" height="380rpx" image-class="bannerImg" src="{{item.img}}" />
+        <van-image width="100%" height="380rpx" image-class="bannerImg" src="{{item.imgUrl}}" />
       </swiper-item>
     </swiper>
   </view>
   <view wx:if="{{hasMes}}">
-    <van-notice-bar color="#1989fa" scrollable background="#ecf9ff" left-icon="info-o" text="欢迎来到一网通管！" />
+    <van-notice-bar color="#1989fa" scrollable background="#ecf9ff" left-icon="info-o" text="{{notice}}" />
   </view>
 </view>
 <view class="home-page-container">
   <view class="titleWrap">
-    <view class="commonTitle">我的功能</view>
+    <view class="commonTitle">{{indexModel[0].modelName}}</view>
   </view>
   <view class="homeIconList">
     <view class="listRe" wx:for="{{homeIconList}}" wx:for-index='index' wx:key="index" slot="note" data-index="{{index}}" bindtap="toPages">
-      <view class="home-badge" wx:if="{{index === 0}}" size="medium">{{ 3}}</view>
+      <view class="home-badge" wx:if="{{index === 0}}" size="medium">{{ 1 }}</view>
       <image class="listReImage" src="{{item.icon}}">
       </image>
-      <view class="listName">{{item.name}}</view>
+      <view class="listName">{{item.modelName}}</view>
     </view>
   </view>
   <view class="titleWrap">
-    <view class="commonTitle">相关资讯</view>
+    <view class="commonTitle">{{indexModel[1].modelName}}</view>
   </view>
   <view class="newsList">
     <view class="newsItem" wx:for="{{newsList}}" bindtap="toInfo" data-item="{{item}}">
       <view class="newsTitle">{{item.title}}</view>
       <view class="newsBody">
-        <view class="newsDate">
+        <view class="newsDate" wx:if="{{item.date}}">
           <image class="newsIcon" src="../../images/iconDate.png"></image><text>{{item.date}}</text>
         </view>
-        <view class="newsView">
+        <view class="newsView" wx:if="{{false}}">
           <image class="newsIcon" src="../../images/iconView.png"></image><text>{{item.view}}</text>
         </view>
       </view>

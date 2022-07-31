@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/login/index",
     "pages/index/index",
     "pages/index/infoDetail/index",
     "pages/user/changeName/index",
@@ -11,8 +12,7 @@
     "pages/scan/index",
     "pages/building/index",
     "pages/personApprove/index",
-    "pages/user/index",
-    "pages/login/index"
+    "pages/user/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

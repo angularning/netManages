@@ -7,7 +7,7 @@
       </view> -->
       <view class="noramlForm" wx:for="{{formData}}" wx:key='index'>
         <view wx:if="{{item.type === 'input'}}">
-          <van-field name='{{item.id}}' required="{{item.isRequire}}" label="{{item.label}}" title-width="90px" type="{{item.limitType}}" maxlength="{{item.max}}" model:value="{{ item.value }}" placeholder="{{item.placeholder}}" border="{{ false }}" >
+          <van-field name='{{item.id}}' required="{{item.isRequire}}" disabled="{{item.disable}}" label="{{item.label}}" title-width="90px" type="{{item.limitType}}" maxlength="{{item.max}}" model:value="{{ item.value }}" placeholder="{{item.placeholder}}" border="{{ false }}" >
            <van-icon bindtap="getUserLocation" wx:if="{{item.hasIcon}}" slot="icon"  name="{{item.iconName}}" />
           </van-field>
           <view wx:if="{{item.children.length > 0 && item.type === 'input'}}" class="childrenFiledBody">
@@ -26,7 +26,7 @@
             </view>
           </view>
           <van-popup z-index="{{99999}}" show="{{ pageData[item.id]['visible'] }}" data-item="{{item}}" position="bottom" custom-style="height: 42%;" bind:close="onClose">
-            <van-picker custom-class="normalPicker" value="{{ item.value }}" name="{{item.id}}" data-item="{{item}}" columns="{{ item.children }}" default-index="{{ 0 }}" show-toolbar title="" bind:cancel="onCloseSelect" bind:confirm="onConfirmSelect" />
+            <van-picker custom-class="normalPicker" value="{{ pageData[item.id]['value']|| item.value }}" name="{{item.id}}" data-item="{{item}}"  columns="{{ item.children }}" default-index="{{ 0 }}" show-toolbar title="" bind:cancel="onCloseSelect" bind:confirm="onConfirmSelect" />
           </van-popup>
         </view>
         <view class="lineRadio" wx:if="{{item.type === 'radio'}}">
